@@ -1,4 +1,5 @@
-# DISK QUOTA ALERT
+# DISK QUOTA ALERT DBSERVER
+last reviewed 01-05-2024
 
 ## grant super user access
 ```MARKDOWN
@@ -7,7 +8,7 @@ btool su
 
 ## purge binlogs
 ```MARKDOWN
-ssh dbserver-c0b21144.panth.io -p 2225  -t 'cd /srv/bindings/9e0451151c724350b57ed5620a674d79/;btool info -b 9e0451151c724350b57ed5620a674d79; bash --login'
+btool purge_binlogs -b ${BINDING_ID} --hours 0.01
 ```
 
 ## top 10 large files
