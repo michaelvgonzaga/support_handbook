@@ -5,3 +5,4 @@ Looks like you are away from the keyboard, I’ll go ahead and close this chat s
 It seems that you're away from the keyboard, I'll close this chat for now. Feel free to reach out anytime—we're here to help
 
 It seems you’re currently unavailable, I’ll close this chat for now. Don’t hesitate to reach out anytime—we’re always here to help!
+
