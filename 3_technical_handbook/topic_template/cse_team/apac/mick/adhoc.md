@@ -1,1 +1,0 @@
-# ADHOC TASKS
