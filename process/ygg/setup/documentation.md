@@ -1,4 +1,4 @@
-# Add Ygg to .zshrc and Test Access
+# Add ygg to .zshrc and Test Access
 1. Open Terminal:
  - Press [command] + [spacebar], type Terminal, and hit Enter.
 
