@@ -1,4 +1,4 @@
-# AGCDN Terraform - Adding Sites & Activating Domains (Simplified)
+# Terraform - Adding AGCDN  Sites & Activating Domains (Simplified)
 This guide helps you add a site to AGCDN using Terraform and activate its custom domain.
 
 ###### Prerequisites (Things You Need Before Starting)
