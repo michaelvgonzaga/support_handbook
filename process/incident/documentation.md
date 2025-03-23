@@ -1,7 +1,7 @@
 # Incident
 source: https://getpantheon.atlassian.net/wiki/spaces/CS/pages/2485813249/Escalations+Bugs+Process+SLAs+Definitions
 
-###### Escalation
+###### Bugs type - Escalation
 Urgent issues that must be handled as soon as possible. Acknowledgment by OCE: 15 minutes. Target Resolution by OCE: 4 hours
 
 Incidents:
@@ -14,7 +14,7 @@ Incidents:
  - Unable to create a site
  - Data Backup Recovery
 
-###### OCE
+###### Bugs type - OCE
 Issues on this list are generally time sensitive, but not product escalations. The Severity for an OCE Task should be High.
 
 Incidents:
