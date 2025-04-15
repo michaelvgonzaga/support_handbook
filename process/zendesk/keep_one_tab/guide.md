@@ -15,7 +15,7 @@ Install tab helper:
 brew install jq
 Paste this to terminal to close duplicate Zendesk tabs:
 
-###### run 
+###### save close-zendesk.sh file
 TAB_LIST=$(curl -s http://localhost:9222/json)
 ZENDESK_TABS=$(echo "$TAB_LIST" | jq -r '.[] | select(.url | contains("zendesk.com")) | .id')
 COUNT=0
@@ -26,3 +26,5 @@ for ID in $ZENDESK_TABS; do
   COUNT=$((COUNT+1))
 done
 
+###### run in terminal
+./close-zendesk.sh
