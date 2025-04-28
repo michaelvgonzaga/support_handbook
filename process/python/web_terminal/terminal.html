@@ -25,38 +25,38 @@
   <div id="terminal"></div>
 
   <script>
-    const term = new Terminal({
-      cursorBlink: true,     // Optional: make the cursor blink
-      fontFamily: 'monospace',
-      theme: { background: '#000000' }
-    });
+    const term = new Terminal();
     term.open(document.getElementById('terminal'));
 
-    let socket = new WebSocket('ws://localhost:9001');
+    const socket = new WebSocket('ws://localhost:9001');
+    let socketOpen = false;
 
-    socket.onopen = () => {
-      console.log('✅ WebSocket connection established');
+    socket.addEventListener('open', () => {
+      socketOpen = true;
       term.writeln('✅ Connected to WebSocket server.');
-    };
+    });
 
-    socket.onmessage = (event) => {
+    socket.addEventListener('message', (event) => {
       term.write(event.data);
-    };
+    });
 
-    socket.onclose = () => {
-      console.log('❌ WebSocket connection closed');
+    socket.addEventListener('close', () => {
       term.writeln('\r\n❌ WebSocket connection closed.');
-    };
+      socketOpen = false;
+    });
 
-    socket.onerror = (err) => {
-      console.error('WebSocket error:', err);
-    };
+    socket.addEventListener('error', (err) => {
+      term.writeln('❌ Error connecting to WebSocket');
+      console.error(err);
+    });
 
+    // Ensure data is only sent if WebSocket is open
     term.onData(data => {
-      if (socket.readyState === WebSocket.OPEN) {
+      if (socketOpen) {
         socket.send(data);
       } else {
-        console.warn('WebSocket not open, cannot send:', data);
+        console.log("WebSocket not open, cannot send:", data);
+        term.writeln('❌ WebSocket is not open. Try reconnecting.');
       }
     });
   </script>

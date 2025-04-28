@@ -1,7 +1,7 @@
 
 AFTER CHANGES:
 - Save web_terminal.py.
-- source ~/webterminal-env/bin/activate if needed.
+- source ~/webterminal-env/bin/activate
 - python3 web_terminal.py
 - reload localhost:8080/terminal.html in web browser.
 
