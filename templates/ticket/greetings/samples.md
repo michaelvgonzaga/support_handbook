@@ -1,5 +1,5 @@
 # Sample greeting spiels
-I’m Mick, a Customer Success Engineer at Pantheon.io, and I’m here to help!
+
 
 I’m Mick, from Pantheon.io’s Customer Success team, and I’m here to help out!
 
