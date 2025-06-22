@@ -11,6 +11,7 @@ This guide helps you add a site to AGCDN using Terraform and activate its custom
 
 ###### Add Sites to sites.json
 * clone repo
+* git checkout -b service/{org_dir}/{your-name}
 * Add Site to sites.json
 * Commit and push the change.
 * Create PR

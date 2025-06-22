@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Web Terminal</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: black;
+      overflow: hidden;
+      font-family: monospace;
+    }
+    #terminal {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <!-- xterm.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
+</head>
+<body>
+  <div id="terminal"></div>
+
+  <script>
+    const term = new Terminal();
+    term.open(document.getElementById('terminal'));
+
+    const socket = new WebSocket('ws://localhost:9001');
+    let socketOpen = false;
+
+    socket.addEventListener('open', () => {
+      socketOpen = true;
+      term.writeln('✅ Connected to WebSocket server.');
+    });
+
+    socket.addEventListener('message', (event) => {
+      term.write(event.data);
+    });
+
+    socket.addEventListener('close', () => {
+      term.writeln('\r\n❌ WebSocket connection closed.');
+      socketOpen = false;
+    });
+
+    socket.addEventListener('error', (err) => {
+      term.writeln('❌ Error connecting to WebSocket');
+      console.error(err);
+    });
+
+    // Ensure data is only sent if WebSocket is open
+    term.onData(data => {
+      if (socketOpen) {
+        socket.send(data);
+      } else {
+        console.log("WebSocket not open, cannot send:", data);
+        term.writeln('❌ WebSocket is not open. Try reconnecting.');
+      }
+    });
+  </script>
+</body>
+</html>
