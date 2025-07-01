@@ -1,6 +1,5 @@
 # Sample greeting spiels
 
-
 I’m Mick, from Pantheon.io’s Customer Success team, and I’m here to help out!
 
 # greeting acknowledgement
